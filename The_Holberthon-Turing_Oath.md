@@ -24,7 +24,7 @@ As a member of the data science and artificial intelligence profession, I solemn
 - I will share my knowledge for the benefit of the people and the advancement of Data-Science and Artificial Intelligence;
 - I will consider the impact of my work on fairness both in perpetuating historical biases, which is caused by the blind extrapolation from past data to future predictions, and in creating new conditions that increase economic or other inequality;
 - I make these promises to create Artificial Intelligence, first, to collaborate with people for the greater good, rather than usurp the human role and supplant them;
-- I make these promises solemnly, freely, and upon my honor.
 
+I make these promises solemnly, freely, and upon my honor.
 
 Push your suggestions or send them for changes to *suggestion@holbertonturingoath.org*
