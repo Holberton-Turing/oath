@@ -6,4 +6,4 @@ AI becomes an important piece in driving innovation in most of the fields and so
 
 **The Holberton-Turing Oath** is made toward evolving at any time from mutual contributions from AI experts but also philosophers, economists, leaders and any citizen in general.
 
-Push your suggestions or send them for changes to *suggestion@holbertonturingoath.org*
+To push your suggestions or propose changes, go to the website and fill in the **Suggestions** form: [www.holbertonturingoath.org](https://www.holbertonturingoath.org/#suggestions)
