@@ -45,6 +45,16 @@
   [lang="bn"], [lang="bn"] * { font-family: 'Noto Sans Bengali', 'IBM Plex Sans', sans-serif !important; }
   [lang="ur"], [lang="ur"] * { font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', serif !important; }
   [lang="mr"], [lang="mr"] * { font-family: 'Noto Sans Devanagari', 'IBM Plex Sans', sans-serif !important; }
+  .hto-nav { display:flex; align-items:center; gap:22px; }
+  .hto-burger { display:none; flex-direction:column; gap:4px; background:none; border:1px solid rgba(22,36,59,0.3); border-radius:3px; padding:9px 10px; cursor:pointer; }
+  .hto-burger span { display:block; width:18px; height:1.5px; background:#16243b; }
+  @media (max-width:768px) {
+    .hto-burger { display:inline-flex; }
+    .hto-nav { display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; background:rgba(244,241,232,0.98); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid rgba(22,36,59,0.14); padding:6px 0 12px; box-shadow:0 12px 26px rgba(22,36,59,0.12); }
+    .hto-nav.hto-open { display:flex; }
+    .hto-nav > a { padding:13px 28px; font-size:16px; opacity:0.92; }
+    .hto-langwrap { padding:14px 28px 2px; }
+  }
 </style>
 </helmet>
 
@@ -52,18 +62,21 @@
 
   <!-- HEADER -->
   <header style="position:sticky; top:0; z-index:50; background:rgba(244,241,232,0.88); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid rgba(22,36,59,0.14);">
-    <div style="max-width:1120px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:14px 20px; flex-wrap:wrap;">
+    <div style="max-width:1120px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; position:relative;">
       <a href="#top" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; flex:none;">
         <span style="width:36px; height:36px; border:1.5px solid #9a7b3f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.05em; color:#9a7b3f;">H·T</span>
         <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; line-height:1.2;">Holberton<br>Turing&nbsp;Oath</span>
       </a>
-      <nav style="display:flex; align-items:center; gap:22px; flex-wrap:wrap; justify-content:flex-end;">
-        <a href="#about" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.about }}</a>
-        <a href="#oath" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.oath }}</a>
-        <a href="#sign" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.sign }}</a>
-        <a href="#who" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.who }}</a>
-        <a href="#contact" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.suggestions }}</a>
-        <div style="position:relative; display:flex; align-items:center;">
+      <button class="hto-burger" type="button" onClick="{{ toggleMenu }}" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="hto-nav {{ navOpen }}" style="justify-content:flex-end; flex-wrap:wrap;">
+        <a href="#about" onClick="{{ closeMenu }}" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.about }}</a>
+        <a href="#oath" onClick="{{ closeMenu }}" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.oath }}</a>
+        <a href="#sign" onClick="{{ closeMenu }}" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.sign }}</a>
+        <a href="#who" onClick="{{ closeMenu }}" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.who }}</a>
+        <a href="#contact" onClick="{{ closeMenu }}" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.suggestions }}</a>
+        <div class="hto-langwrap" style="position:relative; display:flex; align-items:center;">
           <select value="{{ currentLang }}" onChange="{{ onLang }}" aria-label="Language" style="appearance:none; -webkit-appearance:none; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#16243b; background:transparent; border:1px solid rgba(22,36,59,0.3); border-radius:2px; padding:6px 26px 6px 10px; cursor:pointer;">
             <sc-for list="{{ langs }}" as="lang" hint-placeholder-count="7">
               <option value="{{ lang.code }}">{{ lang.label }}</option>
@@ -286,7 +299,11 @@ class Component extends DCLogic {
     status: "idle", // idle | submitting | success | error | config
     sForm: { suggestion: "", email: "" },
     sStatus: "idle", // idle | submitting | sent | error | config
+    menuOpen: false,
   };
+
+  toggleMenu = () => this.setState((s) => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen: false });
 
   async componentDidMount() {
     const mod = await import("./translations.js");
@@ -307,7 +324,7 @@ class Component extends DCLogic {
   onLang = (e) => {
     const lang = e.target.value;
     try { localStorage.setItem("hto_lang", lang); } catch (err) {}
-    this.setState({ lang });
+    this.setState({ lang, menuOpen: false });
   };
 
   setField = (key) => (e) => {
@@ -380,7 +397,8 @@ class Component extends DCLogic {
     if (!data) {
       return { t: undefined, langs: langs, currentLang: lang, dir: (lang === "ar" || lang === "ur") ? "rtl" : "ltr", oathGroups: [],
         form, sForm, showEmblem, isSubmitting: false, isSuccess: false, isError: false, isConfig: false,
-        isSuggestSubmitting: false, isSuggestSent: false, isSuggestError: false, isSuggestConfig: false };
+        isSuggestSubmitting: false, isSuggestSent: false, isSuggestError: false, isSuggestConfig: false,
+        navOpen: this.state.menuOpen ? "hto-open" : "", toggleMenu: this.toggleMenu, closeMenu: this.closeMenu };
     }
     const t = data[lang] || data.en;
     const email = this.EMAIL;
@@ -431,6 +449,9 @@ class Component extends DCLogic {
       onSuggestText: this.setSField("suggestion"),
       onSuggestEmail: this.setSField("email"),
       onSuggestSubmit: this.onSuggestSubmit,
+      navOpen: this.state.menuOpen ? "hto-open" : "",
+      toggleMenu: this.toggleMenu,
+      closeMenu: this.closeMenu,
     };
   }
 }
