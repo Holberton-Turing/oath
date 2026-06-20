@@ -19,4 +19,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://holberton-turing.github.io/oath/sitemap.xml
+Sitemap: https://www.holbertonturingoath.org/sitemap.xml
