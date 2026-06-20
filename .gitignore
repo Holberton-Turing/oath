@@ -1,0 +1,21 @@
+# macOS junk
+.DS_Store
+._*
+
+# Private / local dot-directories — NEVER commit to this public repo.
+# .data  = contact / signature exports (PII)
+# .claude = local Claude Code tooling (sync-oath skill, settings)
+# .works = local working docs (changelogs, notes)
+.data/
+.claude/
+.works/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Claude Design export archives (sync source, not deployed)
+*.zip
+
+# NOTE: .nojekyll is REQUIRED by GitHub Pages — it stays tracked (not ignored).

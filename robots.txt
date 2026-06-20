@@ -1,0 +1,22 @@
+# robots.txt — Holberton-Turing Oath
+
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers are welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://holberton-turing.github.io/oath/sitemap.xml

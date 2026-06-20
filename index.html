@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<title>The Holberton-Turing Oath</title>
+<meta name="description" content="A solemn pledge gathering data science and artificial intelligence experts around shared values — to serve humanity, protect life, and act with integrity.">
+<link rel="canonical" href="https://holberton-turing.github.io/oath/">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="images/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Holberton-Turing Oath">
+<meta property="og:title" content="The Holberton-Turing Oath">
+<meta property="og:description" content="A solemn pledge gathering data science and artificial intelligence experts around shared values — to serve humanity, protect life, and act with integrity.">
+<meta property="og:url" content="https://holberton-turing.github.io/oath/">
+<meta property="og:image" content="https://holberton-turing.github.io/oath/images/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Holberton-Turing Oath">
+<meta name="twitter:description" content="A solemn pledge gathering data science and artificial intelligence experts around shared values — to serve humanity, protect life, and act with integrity.">
+<meta name="twitter:image" content="https://holberton-turing.github.io/oath/images/og-cover.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "The Holberton-Turing Oath", "url": "https://holberton-turing.github.io/oath/", "description": "A solemn pledge gathering data science and artificial intelligence experts around shared values — to serve humanity, protect life, and act with integrity.", "inLanguage": ["en", "fr", "es", "de", "nl", "zh", "ko"]}</script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  ::selection { background: #9a7b3f; color: #fbfaf5; }
+  section[id] { scroll-margin-top: 88px; }
+  input::placeholder, textarea::placeholder { color: #9aa0a8; }
+  @keyframes htoFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Sans',system-ui,sans-serif; background:#f4f1e8; color:#16243b; -webkit-font-smoothing:antialiased; min-height:100vh; line-height:1.6;">
+
+  <!-- HEADER -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(244,241,232,0.88); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid rgba(22,36,59,0.14);">
+    <div style="max-width:1120px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:14px 20px; flex-wrap:wrap;">
+      <a href="#top" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; flex:none;">
+        <span style="width:36px; height:36px; border:1.5px solid #9a7b3f; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.05em; color:#9a7b3f;">H·T</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; line-height:1.2;">Holberton<br>Turing&nbsp;Oath</span>
+      </a>
+      <nav style="display:flex; align-items:center; gap:22px; flex-wrap:wrap; justify-content:flex-end;">
+        <a href="#about" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.about }}</a>
+        <a href="#oath" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.oath }}</a>
+        <a href="#sign" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.sign }}</a>
+        <a href="#who" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.who }}</a>
+        <a href="#contact" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.contact }}</a>
+        <div style="position:relative; display:flex; align-items:center;">
+          <select value="{{ currentLang }}" onChange="{{ onLang }}" aria-label="Language" style="appearance:none; -webkit-appearance:none; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#16243b; background:transparent; border:1px solid rgba(22,36,59,0.3); border-radius:2px; padding:6px 26px 6px 10px; cursor:pointer;">
+            <sc-for list="{{ langs }}" as="lang" hint-placeholder-count="7">
+              <option value="{{ lang.code }}">{{ lang.label }}</option>
+            </sc-for>
+          </select>
+          <span style="position:absolute; right:9px; pointer-events:none; color:#9a7b3f; font-size:10px;">▾</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="padding:96px 28px 84px;">
+    <div style="max-width:840px; margin:0 auto; text-align:center;">
+      <sc-if value="{{ showEmblem }}" hint-placeholder-val="{{ true }}">
+        <div style="width:88px; height:88px; margin:0 auto 30px; border:1.5px solid #9a7b3f; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:20px; letter-spacing:0.06em; color:#9a7b3f;">H·T</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.32em; color:#9a7b3f; text-transform:uppercase;">Oath</span>
+        </div>
+      </sc-if>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:#9a7b3f; margin-bottom:24px;">{{ t.hero.eyebrow }}</div>
+      <h1 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:clamp(40px,6.2vw,68px); line-height:1.04; letter-spacing:-0.01em; margin:0 0 26px;">{{ t.hero.title }}</h1>
+      <p style="font-size:clamp(17px,2vw,20px); line-height:1.6; max-width:620px; margin:0 auto 38px; color:#37445c;">{{ t.hero.lead }}</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="#sign" style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; background:#16243b; color:#f4f1e8; text-decoration:none; padding:15px 30px; border-radius:2px;">{{ t.hero.cta }}</a>
+        <a href="#oath" style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; background:transparent; color:#16243b; text-decoration:none; padding:15px 30px; border:1px solid rgba(22,36,59,0.3); border-radius:2px;">{{ t.hero.ctaSecondary }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="padding:72px 28px; border-top:1px solid rgba(22,36,59,0.14);">
+    <div style="max-width:1000px; margin:0 auto; display:flex; flex-wrap:wrap; gap:36px 56px; align-items:flex-start;">
+      <div style="flex:1 1 220px; min-width:200px; position:sticky; top:108px;">
+        <div style="width:42px; height:1px; background:#9a7b3f; margin-bottom:18px;"></div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#9a7b3f; margin-bottom:10px;">01 — {{ t.nav.about }}</div>
+        <h2 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:clamp(28px,3.4vw,38px); line-height:1.1; margin:0;">{{ t.about.title }}</h2>
+      </div>
+      <div style="flex:3 1 340px; min-width:0;">
+        <sc-for list="{{ t.about.paras }}" as="para" hint-placeholder-count="3">
+          <p style="font-size:17px; line-height:1.75; margin:0 0 22px; color:#2b384f;">{{ para }}</p>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- OATH (dark) -->
+  <section id="oath" style="padding:92px 28px 100px; background:#16243b; color:#eae6da;">
+    <div style="max-width:780px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:54px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#c4a460; margin-bottom:14px;">02 — {{ t.nav.oath }}</div>
+        <h2 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:clamp(30px,4vw,44px); margin:0 0 30px; color:#fbfaf5;">{{ t.oath.title }}</h2>
+        <p style="font-family:'Spectral',Georgia,serif; font-style:italic; font-size:clamp(19px,2.4vw,23px); line-height:1.6; color:#d8d2c2; max-width:680px; margin:0 auto;">{{ t.oath.intro }}</p>
+      </div>
+
+      <sc-for list="{{ oathGroups }}" as="group" hint-placeholder-count="3">
+        <div style="margin-bottom:46px;">
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:#c4a460; white-space:nowrap;">{{ group.title }}</span>
+            <span style="flex:1; height:1px; background:rgba(196,164,96,0.32);"></span>
+          </div>
+          <sc-for list="{{ group.clauses }}" as="clause" hint-placeholder-count="4">
+            <div style="display:flex; gap:18px; padding:13px 0; border-bottom:1px solid rgba(234,230,218,0.1);">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#c4a460; flex:none; width:24px; padding-top:3px;">{{ clause.marker }}</span>
+              <span style="font-size:16.5px; line-height:1.62; color:#e4dfd1;">{{ clause.text }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+
+      <div style="text-align:center; margin-top:58px;">
+        <div style="width:54px; height:1px; background:#c4a460; margin:0 auto 28px;"></div>
+        <p style="font-family:'Spectral',Georgia,serif; font-style:italic; font-weight:400; font-size:clamp(22px,3vw,30px); line-height:1.4; color:#fbfaf5; margin:0;">{{ t.oath.closing }}</p>
+        <div style="margin-top:30px;">
+          <a href="Oath-v2.dc.html" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#c4a460; text-decoration:none; border:1px solid rgba(196,164,96,0.45); border-radius:2px; padding:11px 22px; display:inline-block;">{{ t.oath.revisionLink }} →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGN -->
+  <section id="sign" style="padding:84px 28px;">
+    <div style="max-width:580px; margin:0 auto; text-align:center;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#9a7b3f; margin-bottom:14px;">03 — {{ t.nav.sign }}</div>
+      <h2 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:clamp(28px,3.6vw,40px); margin:0 0 12px;">{{ t.sign.title }}</h2>
+      <p style="font-size:16px; line-height:1.65; color:#37445c; margin:0 auto 36px; max-width:460px;">{{ t.sign.lead }}</p>
+    </div>
+
+    <form onSubmit="{{ onSubmit }}" style="max-width:580px; margin:0 auto; background:#fbfaf5; border:1px solid rgba(22,36,59,0.12); border-radius:3px; padding:34px; box-shadow:0 1px 3px rgba(22,36,59,0.06); text-align:left;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px;">
+        <label style="display:block;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#5a6680; display:block; margin-bottom:7px;">{{ t.sign.name }}</span>
+          <input value="{{ form.name }}" onChange="{{ onName }}" required style="width:100%; font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#16243b; background:#fff; border:1px solid rgba(22,36,59,0.18); border-radius:2px; padding:11px 12px;" />
+        </label>
+        <label style="display:block;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#5a6680; display:block; margin-bottom:7px;">{{ t.sign.email }}</span>
+          <input value="{{ form.email }}" onChange="{{ onEmail }}" type="email" required style="width:100%; font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#16243b; background:#fff; border:1px solid rgba(22,36,59,0.18); border-radius:2px; padding:11px 12px;" />
+        </label>
+        <label style="display:block;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#5a6680; display:block; margin-bottom:7px;">{{ t.sign.role }}</span>
+          <input value="{{ form.role }}" onChange="{{ onRole }}" style="width:100%; font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#16243b; background:#fff; border:1px solid rgba(22,36,59,0.18); border-radius:2px; padding:11px 12px;" />
+        </label>
+        <label style="display:block;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#5a6680; display:block; margin-bottom:7px;">{{ t.sign.country }}</span>
+          <input value="{{ form.country }}" onChange="{{ onCountry }}" style="width:100%; font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#16243b; background:#fff; border:1px solid rgba(22,36,59,0.18); border-radius:2px; padding:11px 12px;" />
+        </label>
+      </div>
+      <label style="display:block; margin-top:18px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#5a6680; display:block; margin-bottom:7px;">{{ t.sign.message }}</span>
+        <textarea value="{{ form.message }}" onChange="{{ onMessage }}" rows="3" style="width:100%; font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#16243b; background:#fff; border:1px solid rgba(22,36,59,0.18); border-radius:2px; padding:11px 12px; resize:vertical;"></textarea>
+      </label>
+      <label style="display:flex; align-items:flex-start; gap:11px; margin-top:20px; cursor:pointer;">
+        <input type="checkbox" checked="{{ form.agree }}" onChange="{{ onAgree }}" required style="margin-top:3px; width:17px; height:17px; accent-color:#9a7b3f; flex:none;" />
+        <span style="font-size:14px; line-height:1.5; color:#2b384f;">{{ t.sign.agree }}</span>
+      </label>
+      <button type="submit" disabled="{{ isSubmitting }}" style="width:100%; margin-top:24px; font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; background:#16243b; color:#f4f1e8; border:none; border-radius:2px; padding:16px; cursor:pointer;">{{ submitLabel }}</button>
+
+      <sc-if value="{{ isSuccess }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:18px 0 0; padding:13px 15px; background:rgba(31,107,68,0.1); border:1px solid rgba(31,107,68,0.3); border-radius:2px; font-size:14px; color:#1f6b44; text-align:center;">{{ t.sign.success }}</p>
+      </sc-if>
+      <sc-if value="{{ isError }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:18px 0 0; padding:13px 15px; background:rgba(150,40,40,0.08); border:1px solid rgba(150,40,40,0.3); border-radius:2px; font-size:14px; color:#962828; text-align:center;">{{ t.sign.error }}</p>
+      </sc-if>
+      <sc-if value="{{ isConfig }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:18px 0 0; padding:13px 15px; background:rgba(154,123,63,0.1); border:1px solid rgba(154,123,63,0.35); border-radius:2px; font-size:14px; color:#7a6230; text-align:center;">{{ t.sign.configNote }}</p>
+      </sc-if>
+    </form>
+  </section>
+
+  <!-- WHO -->
+  <section id="who" style="padding:84px 28px; border-top:1px solid rgba(22,36,59,0.14);">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:48px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#9a7b3f; margin-bottom:14px;">04 — {{ t.nav.who }}</div>
+        <h2 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:clamp(28px,3.6vw,40px); margin:0;">{{ t.who.title }}</h2>
+        <p style="font-family:'Spectral',Georgia,serif; font-style:italic; font-size:clamp(17px,2vw,21px); line-height:1.6; color:#37445c; max-width:700px; margin:20px auto 0;">{{ t.who.tribute }}</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:32px;">
+        <article style="background:#fbfaf5; border:1px solid rgba(22,36,59,0.12); border-radius:3px; overflow:hidden;">
+          <img src="images/betty-holberton.png" alt="Frances Elizabeth &quot;Betty&quot; Holberton" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center 18%;" />
+          <div style="padding:24px 26px 28px;">
+            <h3 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:22px; margin:0 0 5px;">{{ t.who.holberton.name }}</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#9a7b3f; margin-bottom:14px;">{{ t.who.holberton.dates }}</div>
+            <p style="font-size:15px; line-height:1.65; color:#2b384f; margin:0;">{{ t.who.holberton.bio }}</p>
+          </div>
+        </article>
+        <article style="background:#fbfaf5; border:1px solid rgba(22,36,59,0.12); border-radius:3px; overflow:hidden;">
+          <img src="images/alan-turing.png" alt="Alan Mathison Turing" style="display:block; width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center 22%;" />
+          <div style="padding:24px 26px 28px;">
+            <h3 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:22px; margin:0 0 5px;">{{ t.who.turing.name }}</h3>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#9a7b3f; margin-bottom:14px;">{{ t.who.turing.dates }}</div>
+            <p style="font-size:15px; line-height:1.65; color:#2b384f; margin:0;">{{ t.who.turing.bio }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / SUGGESTIONS (dark) -->
+  <section id="contact" style="padding:80px 28px; background:#16243b; color:#eae6da;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:42px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#c4a460; margin-bottom:14px;">05 — {{ t.nav.suggestions }}</div>
+        <h2 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:clamp(28px,3.4vw,40px); margin:0 0 16px; color:#fbfaf5;">{{ t.suggestions.title }}</h2>
+        <p style="font-size:17px; line-height:1.65; color:#cfc9bb; margin:0 auto; max-width:560px;">{{ t.suggestions.body }}</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:26px; align-items:stretch;">
+
+        <a href="Oath-v2.dc.html" style="text-decoration:none; border:1px solid rgba(196,164,96,0.32); border-radius:3px; padding:32px; display:flex; flex-direction:column; align-items:flex-start;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#16243b; background:#c4a460; padding:3px 9px; border-radius:2px; margin-bottom:20px;">Draft v2</span>
+          <h3 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:24px; color:#fbfaf5; margin:0 0 12px;">{{ t.suggestions.v2Title }}</h3>
+          <p style="font-size:15px; line-height:1.6; color:#cfc9bb; margin:0 0 24px;">{{ t.oath.revisionLink }}</p>
+          <span style="margin-top:auto; font-family:'IBM Plex Mono',monospace; font-size:20px; color:#c4a460;">→</span>
+        </a>
+
+        <form onSubmit="{{ onSuggestSubmit }}" style="border:1px solid rgba(234,230,218,0.18); border-radius:3px; padding:32px; display:flex; flex-direction:column;">
+          <h3 style="font-family:'Spectral',Georgia,serif; font-weight:500; font-size:24px; color:#fbfaf5; margin:0 0 18px;">{{ t.suggestions.formTitle }}</h3>
+          <textarea value="{{ sForm.suggestion }}" onChange="{{ onSuggestText }}" rows="3" required placeholder="{{ t.suggestions.placeholder }}" style="width:100%; font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#fbfaf5; background:rgba(255,255,255,0.05); border:1px solid rgba(234,230,218,0.25); border-radius:2px; padding:12px; resize:vertical; margin-bottom:12px;"></textarea>
+          <input type="email" value="{{ sForm.email }}" onChange="{{ onSuggestEmail }}" placeholder="{{ t.sign.email }}" style="width:100%; font-family:'IBM Plex Sans',sans-serif; font-size:15px; color:#fbfaf5; background:rgba(255,255,255,0.05); border:1px solid rgba(234,230,218,0.25); border-radius:2px; padding:12px; margin-bottom:16px;" />
+          <button type="submit" disabled="{{ isSuggestSubmitting }}" style="font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase; color:#16243b; background:#c4a460; border:none; border-radius:2px; padding:14px; cursor:pointer;">{{ suggestLabel }}</button>
+          <sc-if value="{{ isSuggestSent }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:14px 0 0; font-size:14px; color:#bfe0c8; text-align:center;">{{ t.suggestions.sent }}</p>
+          </sc-if>
+          <sc-if value="{{ isSuggestError }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:14px 0 0; font-size:14px; color:#e6b3b3; text-align:center;">{{ t.sign.error }}</p>
+          </sc-if>
+          <sc-if value="{{ isSuggestConfig }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:14px 0 0; font-size:14px; color:#e0cfa0; text-align:center;">{{ t.sign.configNote }}</p>
+          </sc-if>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#101a2c; color:#8b94a6; padding:30px 28px;">
+    <div style="max-width:1000px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em;">
+      <span>{{ t.footer }}</span>
+      <span style="opacity:0.4;">·</span>
+      <a href="https://github.com/Holberton-Turing" target="_blank" rel="noopener" style="color:#c4a460; text-decoration:none;">GitHub ↗</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:820},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;fr&quot;,&quot;es&quot;,&quot;de&quot;,&quot;nl&quot;,&quot;zh&quot;,&quot;ko&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;numberedClauses&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showEmblem&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  // ───────────────────────────────────────────────────────────────
+  // To collect signatures into a spreadsheet, deploy a Google Apps
+  // Script web app (see README) and paste its /exec URL here:
+  FORM_ENDPOINT = "";
+  // ───────────────────────────────────────────────────────────────
+
+  state = {
+    data: null,
+    langs: [],
+    lang: "en",
+    form: { name: "", email: "", role: "", country: "", message: "", agree: false },
+    status: "idle", // idle | submitting | success | error | config
+    sForm: { suggestion: "", email: "" },
+    sStatus: "idle", // idle | submitting | sent | error | config
+  };
+
+  async componentDidMount() {
+    const mod = await import("./translations.js");
+    const langs = mod.LANGS;
+    this.EMAIL = mod.EMAIL;
+    // pick language: stored > prop default > browser > en
+    let lang = null;
+    try { lang = localStorage.getItem("hto_lang"); } catch (e) {}
+    if (!lang) lang = this.props.defaultLang || null;
+    if (!lang) {
+      const nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+      if (mod.I18N[nav]) lang = nav;
+    }
+    if (!lang || !mod.I18N[lang]) lang = "en";
+    this.setState({ data: mod.I18N, langs, lang });
+  }
+
+  onLang = (e) => {
+    const lang = e.target.value;
+    try { localStorage.setItem("hto_lang", lang); } catch (err) {}
+    this.setState({ lang });
+  };
+
+  setField = (key) => (e) => {
+    const v = key === "agree" ? e.target.checked : e.target.value;
+    this.setState((s) => ({ form: { ...s.form, [key]: v } }));
+  };
+
+  onSubmit = async (e) => {
+    e.preventDefault();
+    if (this.state.status === "submitting") return;
+    if (!this.state.form.agree) return;
+    if (!this.FORM_ENDPOINT) { this.setState({ status: "config" }); return; }
+    this.setState({ status: "submitting" });
+    try {
+      await fetch(this.FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...this.state.form,
+          language: this.state.lang,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+      this.setState({
+        status: "success",
+        form: { name: "", email: "", role: "", country: "", message: "", agree: false },
+      });
+    } catch (err) {
+      this.setState({ status: "error" });
+    }
+  };
+
+  setSField = (key) => (e) => {
+    const v = e.target.value;
+    this.setState((s) => ({ sForm: { ...s.sForm, [key]: v } }));
+  };
+
+  onSuggestSubmit = async (e) => {
+    e.preventDefault();
+    if (this.state.sStatus === "submitting") return;
+    if (!this.state.sForm.suggestion.trim()) return;
+    if (!this.FORM_ENDPOINT) { this.setState({ sStatus: "config" }); return; }
+    this.setState({ sStatus: "submitting" });
+    try {
+      await fetch(this.FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "",
+          email: this.state.sForm.email,
+          role: "(suggestion)",
+          country: "",
+          message: this.state.sForm.suggestion,
+          language: this.state.lang,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+      this.setState({ sStatus: "sent", sForm: { suggestion: "", email: "" } });
+    } catch (err) {
+      this.setState({ sStatus: "error" });
+    }
+  };
+
+  renderVals() {
+    const { data, lang, langs, form, status, sForm, sStatus } = this.state;
+    const numbered = this.props.numberedClauses ?? true;
+    const showEmblem = this.props.showEmblem ?? true;
+    if (!data) {
+      return { t: undefined, langs: langs, currentLang: lang, oathGroups: [],
+        form, sForm, showEmblem, isSubmitting: false, isSuccess: false, isError: false, isConfig: false,
+        isSuggestSubmitting: false, isSuggestSent: false, isSuggestError: false, isSuggestConfig: false };
+    }
+    const t = data[lang] || data.en;
+    const email = this.EMAIL;
+
+    // number clauses globally across groups
+    let n = 0;
+    const oathGroups = t.oath.groups.map((g) => ({
+      title: g.title,
+      clauses: g.clauses.map((text) => {
+        n += 1;
+        return { text, marker: numbered ? String(n).padStart(2, "0") : "—" };
+      }),
+    }));
+
+    const submitLabel = status === "submitting" ? t.sign.submitting : t.sign.submit;
+    const suggestLabel = sStatus === "submitting" ? t.suggestions.sending : t.suggestions.send;
+
+    return {
+      t,
+      langs,
+      currentLang: lang,
+      oathGroups,
+      form,
+      showEmblem,
+      email,
+      mailto: "mailto:" + email,
+      mailtoSuggest: "mailto:" + email + "?subject=" + encodeURIComponent("Suggestion — Holberton-Turing Oath"),
+      submitLabel,
+      isSubmitting: status === "submitting",
+      isSuccess: status === "success",
+      isError: status === "error",
+      isConfig: status === "config",
+      onLang: this.onLang,
+      onName: this.setField("name"),
+      onEmail: this.setField("email"),
+      onRole: this.setField("role"),
+      onCountry: this.setField("country"),
+      onMessage: this.setField("message"),
+      onAgree: this.setField("agree"),
+      onSubmit: this.onSubmit,
+      sForm,
+      suggestLabel,
+      isSuggestSubmitting: sStatus === "submitting",
+      isSuggestSent: sStatus === "sent",
+      isSuggestError: sStatus === "error",
+      isSuggestConfig: sStatus === "config",
+      onSuggestText: this.setSField("suggestion"),
+      onSuggestEmail: this.setSField("email"),
+      onSuggestSubmit: this.onSuggestSubmit,
+    };
+  }
+}
+</script>
+</body>
+</html>
