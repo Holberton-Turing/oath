@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@300;400;500;600&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;700&family=Noto+Nastaliq+Urdu:wght@400;500;700&family=Noto+Sans+Devanagari:wght@300;400;500;600&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -43,6 +43,8 @@
   [lang="ar"], [lang="ar"] * { font-family: 'Noto Naskh Arabic', 'Spectral', serif !important; }
   [lang="hi"], [lang="hi"] * { font-family: 'Noto Sans Devanagari', 'IBM Plex Sans', sans-serif !important; }
   [lang="bn"], [lang="bn"] * { font-family: 'Noto Sans Bengali', 'IBM Plex Sans', sans-serif !important; }
+  [lang="ur"], [lang="ur"] * { font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', serif !important; }
+  [lang="mr"], [lang="mr"] * { font-family: 'Noto Sans Devanagari', 'IBM Plex Sans', sans-serif !important; }
 </style>
 </helmet>
 
@@ -376,7 +378,7 @@ class Component extends DCLogic {
     const numbered = this.props.numberedClauses ?? true;
     const showEmblem = this.props.showEmblem ?? true;
     if (!data) {
-      return { t: undefined, langs: langs, currentLang: lang, dir: lang === "ar" ? "rtl" : "ltr", oathGroups: [],
+      return { t: undefined, langs: langs, currentLang: lang, dir: (lang === "ar" || lang === "ur") ? "rtl" : "ltr", oathGroups: [],
         form, sForm, showEmblem, isSubmitting: false, isSuccess: false, isError: false, isConfig: false,
         isSuggestSubmitting: false, isSuggestSent: false, isSuggestError: false, isSuggestConfig: false };
     }
@@ -400,7 +402,7 @@ class Component extends DCLogic {
       t,
       langs,
       currentLang: lang,
-      dir: lang === "ar" ? "rtl" : "ltr",
+      dir: (lang === "ar" || lang === "ur") ? "rtl" : "ltr",
       oathGroups,
       form,
       showEmblem,
