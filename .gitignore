@@ -18,4 +18,7 @@
 # Claude Design export archives (sync source, not deployed)
 *.zip
 
+# Apps Script backend template — kept local, not published on the public repo
+google-apps-script.gs
+
 # NOTE: .nojekyll is REQUIRED by GitHub Pages — it stays tracked (not ignored).
