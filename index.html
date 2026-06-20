@@ -31,6 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;700&family=Noto+Sans+Devanagari:wght@300;400;500;600&family=Noto+Sans+Bengali:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -39,10 +40,13 @@
   section[id] { scroll-margin-top: 88px; }
   input::placeholder, textarea::placeholder { color: #9aa0a8; }
   @keyframes htoFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  [lang="ar"], [lang="ar"] * { font-family: 'Noto Naskh Arabic', 'Spectral', serif !important; }
+  [lang="hi"], [lang="hi"] * { font-family: 'Noto Sans Devanagari', 'IBM Plex Sans', sans-serif !important; }
+  [lang="bn"], [lang="bn"] * { font-family: 'Noto Sans Bengali', 'IBM Plex Sans', sans-serif !important; }
 </style>
 </helmet>
 
-<div style="font-family:'IBM Plex Sans',system-ui,sans-serif; background:#f4f1e8; color:#16243b; -webkit-font-smoothing:antialiased; min-height:100vh; line-height:1.6;">
+<div lang="{{ currentLang }}" dir="{{ dir }}" style="font-family:'IBM Plex Sans',system-ui,sans-serif; background:#f4f1e8; color:#16243b; -webkit-font-smoothing:antialiased; min-height:100vh; line-height:1.6;">
 
   <!-- HEADER -->
   <header style="position:sticky; top:0; z-index:50; background:rgba(244,241,232,0.88); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid rgba(22,36,59,0.14);">
@@ -56,7 +60,7 @@
         <a href="#oath" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.oath }}</a>
         <a href="#sign" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.sign }}</a>
         <a href="#who" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.who }}</a>
-        <a href="#contact" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.contact }}</a>
+        <a href="#contact" style="font-size:14px; color:#16243b; text-decoration:none; opacity:0.8;">{{ t.nav.suggestions }}</a>
         <div style="position:relative; display:flex; align-items:center;">
           <select value="{{ currentLang }}" onChange="{{ onLang }}" aria-label="Language" style="appearance:none; -webkit-appearance:none; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#16243b; background:transparent; border:1px solid rgba(22,36,59,0.3); border-radius:2px; padding:6px 26px 6px 10px; cursor:pointer;">
             <sc-for list="{{ langs }}" as="lang" hint-placeholder-count="7">
@@ -372,7 +376,7 @@ class Component extends DCLogic {
     const numbered = this.props.numberedClauses ?? true;
     const showEmblem = this.props.showEmblem ?? true;
     if (!data) {
-      return { t: undefined, langs: langs, currentLang: lang, oathGroups: [],
+      return { t: undefined, langs: langs, currentLang: lang, dir: lang === "ar" ? "rtl" : "ltr", oathGroups: [],
         form, sForm, showEmblem, isSubmitting: false, isSuccess: false, isError: false, isConfig: false,
         isSuggestSubmitting: false, isSuggestSent: false, isSuggestError: false, isSuggestConfig: false };
     }
@@ -396,6 +400,7 @@ class Component extends DCLogic {
       t,
       langs,
       currentLang: lang,
+      dir: lang === "ar" ? "rtl" : "ltr",
       oathGroups,
       form,
       showEmblem,
